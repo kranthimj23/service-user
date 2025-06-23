@@ -52,7 +52,7 @@ agent any
                   def image_full = "${image_repo}:${image_tag}"
        
                   bat """
-                      docker build -f ./app/Dockerfile -t ${image_full} .
+                      docker build -t ${image_full} .
                       docker push ${image_full}
                   """
               }
