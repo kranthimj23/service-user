@@ -14,22 +14,15 @@ pipeline {
     }
 
     stages {
-
-        stage('Checkout with credentials') {
+ 
+        stage('Checkout') {
+ 
             steps {
-                deleteDir()
-                script {
-                    withCredentials([string(credentialsId: 'Jenkins-Generic', variable: 'GIT_TOKEN')]) {
-                        checkout([
-                            $class: 'GitSCM',
-                            branches: [[name: "*/dev"]],
-                            userRemoteConfigs: [[
-                                url: "https://github.com/kranthimj23/service-user.git"
-                            ]]
-                        ])
-                    }
-                }
+ 
+                checkout scm
+ 
             }
+ 
         }
 
         stage('Authenticate with GCP') {
