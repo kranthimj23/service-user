@@ -9,7 +9,7 @@ pipeline {
         CLUSTER = 'autopilot-cluster-1'
         ZONE = 'asia-south1'
         GCP_KEY = 'C:\\Users\\himan\\Downloads\\devops-lab-ci\\flask-gke-helm\\jenkins-sa-key.json'   
-        PYTHON_EXEC = 'C:\\Users\\himan\\AppData\\Local\\Programs\\Python\\Python311\\python.exe'
+        PYTHON_EXEC = 'C:\\Users\\himan\\AppData\\Local\\Programs\\Python\\Python313\\python.exe'
         GIT_CREDENTIALS_ID = credentials('Jenkins-Generic')
     }
 
@@ -62,7 +62,7 @@ pipeline {
                             set CLUSTER=${env.CLUSTER}
                             set ZONE=${env.ZONE}
                             set PROJECT_ID=${env.PROJECT_ID}
-                            ${env.PYTHON_EXEC} deploy_to_gke.py ${env.env_namespace} ${image_repo} ${image_tag} ${env.github_url}
+                            python313 deploy_to_gke.py ${env.env_namespace} ${image_repo} ${image_tag} ${env.github_url}
                         """
                     
                         echo "Executing Python Deployment Script..."
