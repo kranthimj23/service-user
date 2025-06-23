@@ -83,6 +83,8 @@ agent any
                         script {
  
                             def result = bat(
+
+                                echo "${env.PYTHON_EXEC} deploy_to_gke.py ${env.env_namespace} ${image_repo} ${image_tag} ${env.github_url} "
  
                                 script: "${env.PYTHON_EXEC} deploy_to_gke.py ${env.env_namespace} ${image_repo} ${image_tag} ${env.github_url} ",
  
