@@ -12,19 +12,28 @@ agent any
         ZONE = 'asia-south1'
         GCP_KEY = 'C:\\Users\\himan\\Downloads\\devops-lab-ci\\flask-gke-helm\\jenkins-sa-key.json'   
         PYTHON_EXEC = 'C:\\Users\\himan\\AppData\\Local\\Programs\\Python\\Python313\\python.exe'
+        GIT_CREDENTIALS_ID = credentials('Jenkins-Generic') 
+     
     }
  
     stages {
  
-            stage('Checkout') {
-    
-                steps {
-    
-                    checkout scm
-    
-                }
-    
-            }
+           stage('Checkout with credentials') {
+               steps {
+                   deleteDir()
+                   script {
+                       withCredentials([string(credentialsId: 'Jenkins-Generic', variable: 'GIT_TOKEN')]) {
+                           checkout([
+                               $class: 'GitSCM',
+                               branches: [[name: "*/dev"]],
+                               userRemoteConfigs: [[
+                                   url: ${env.github_url}
+                               ]]
+                           ])
+                       }
+                   }
+               }
+           }
  
             stage('Authenticate with GCP') {
     
