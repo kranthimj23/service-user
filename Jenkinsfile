@@ -30,8 +30,8 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 bat """
-                docker build -f ./app/Dockerfile -t asia-south1-docker.pkg.dev/${env.PROJECT_ID}/flask-repo/flask-app:${env.env_namespace} ./app
-                docker push asia-south1-docker.pkg.dev/${env.PROJECT_ID}/service-user/:${env.env_namespace}
+                docker build -f ./app/Dockerfile -t asia-south1-docker.pkg.dev/${env.PROJECT_ID}/service-user/user:${BUILD_NUMBER}-${env.env_namespace} ./app
+                docker push asia-south1-docker.pkg.dev/${env.PROJECT_ID}/service-user/user:${BUILD_NUMBER}-${env.env_namespace}
                 """
             }
         }
