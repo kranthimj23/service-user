@@ -73,6 +73,7 @@ pipeline {
                         """
                     
                         echo "Executing Python Deployment Script..."
+                        echo "${pythonCommand}"
                         
                         def result = bat(script: pythonCommand, returnStdout: true).trim()
                         echo "Deployment Output:\n${result}"
