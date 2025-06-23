@@ -62,7 +62,7 @@ pipeline {
                             set CLUSTER=${env.CLUSTER}
                             set ZONE=${env.ZONE}
                             set PROJECT_ID=${env.PROJECT_ID}
-                            python313 deploy_to_gke.py ${env.env_namespace} ${image_repo} ${image_tag} ${env.github_url}
+                            ${env.PYTHON_EXEC} deploy_to_gke.py ${env.env_namespace} ${image_repo} ${image_tag} ${env.github_url}
                         """
                     
                         echo "Executing Python Deployment Script..."
