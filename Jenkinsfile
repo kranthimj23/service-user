@@ -1,3 +1,6 @@
+def image_repo = ''
+def image_tag = ''
+
 pipeline {
  
 agent any
@@ -9,9 +12,6 @@ agent any
         ZONE = 'asia-south1'
         GCP_KEY = 'C:\\Users\\himan\\Downloads\\devops-lab-ci\\flask-gke-helm\\jenkins-sa-key.json'   
         PYTHON_EXEC = 'C:\\Users\\himan\\AppData\\Local\\Programs\\Python\\Python313\\python.exe'
- 
-        
- 
     }
  
     stages {
@@ -47,8 +47,8 @@ agent any
        stage('Build Docker Image') {
           steps {
               script {
-                  def image_repo = "asia-south1-docker.pkg.dev/${env.PROJECT_ID}/service-user/user"
-                  def image_tag = "${BUILD_NUMBER}-${env.env_namespace}"
+                  image_repo = "asia-south1-docker.pkg.dev/${env.PROJECT_ID}/service-user/user"
+                  image_tag = "${BUILD_NUMBER}-${env.env_namespace}"
                   def image_full = "${image_repo}:${image_tag}"
        
                   bat """
