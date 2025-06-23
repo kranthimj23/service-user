@@ -57,20 +57,21 @@ pipeline {
                 """
 
                 configFileProvider([configFile(fileId: 'deploy_to_gke', targetLocation: 'deploy_to_gke.py')]) {
-                  script {
-                        def pythonCommand = """
-                            set CLUSTER=${env.CLUSTER}
-                            set ZONE=${env.ZONE}
-                            set PROJECT_ID=${env.PROJECT_ID}
-                            ${env.PYTHON_EXEC} deploy_to_gke.py ${env.env_namespace} ${image_repo} ${image_tag} ${env.github_url}
-                        """
-                    
-                        echo "Executing Python Deployment Script..."
-                        echo "${pythonCommand}"
+                     script {
+                            def pythonCommand = """
+                                set CLUSTER=${env.CLUSTER}
+                                set ZONE=${env.ZONE}
+                                set PROJECT_ID=${env.PROJECT_ID}
+                                echo Running Python script...
+                                ${env.PYTHON_EXEC} deploy_to_gke.py ${env.env_namespace} ${image_repo} ${image_tag} ${env.github_url}
+                            """
                         
-                        bat "${pythonCommand}" 
-                        echo "Deployment Output:\n${result}"
-                    }
+                            echo "Executing Python Deployment Script..."
+                        
+                            def result = bat(script: pythonCommand, returnStdout: true).trim()
+                            echo "Deployment Output:\n${result}"
+                        }
+
                 }
             }
         }
