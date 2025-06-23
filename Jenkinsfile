@@ -55,7 +55,7 @@ pipeline {
  
                 bat """
                 
-                docker build -f ./app/Dockerfile -t ${image_repo}:${image_tag} .
+                docker build -t ${image_repo}:${image_tag} .
                 docker push ${image_repo}:${image_tag}
  
                 """
