@@ -27,7 +27,7 @@ agent any
                                $class: 'GitSCM',
                                branches: [[name: "*/dev"]],
                                userRemoteConfigs: [[
-                                   url: ${env.github_url}
+                                   url: "https://github.com/kranthimj23/service-user.git" 
                                ]]
                            ])
                        }
