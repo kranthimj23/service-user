@@ -1,68 +1,63 @@
 pipeline {
  
-    agent any
+agent any
  
     environment {
  
         PROJECT_ID = 'bamboo-diode-456912-p9'
         CLUSTER = 'autopilot-cluster-1'
         ZONE = 'asia-south1'
-        GCP_KEY = 'C:\\Users\\himan\\Downloads\\devops-lab-ci\\flask-gke-helm\\jenkins-sa-key.json'  
- 
+        GCP_KEY = 'C:\\Users\\himan\\Downloads\\devops-lab-ci\\flask-gke-helm\\jenkins-sa-key.json'   
         PYTHON_EXEC = 'C:\\Users\\himan\\AppData\\Local\\Programs\\Python\\Python313\\python.exe'
  
         
-// ⚠️ Ensure this path exists
  
     }
  
     stages {
  
-        stage('Checkout') {
- 
-            steps {
- 
-                checkout scm
- 
+            stage('Checkout') {
+    
+                steps {
+    
+                    checkout scm
+    
+                }
+    
             }
  
-        }
- 
-        stage('Authenticate with GCP') {
- 
-            steps {
- 
-                bat """
- 
-                gcloud auth activate-service-account --key-file="${env.GCP_KEY}"
- 
-                gcloud config set project ${env.PROJECT_ID}
- 
-                gcloud auth configure-docker asia-south1-docker.pkg.dev --quiet
- 
-                """
- 
+            stage('Authenticate with GCP') {
+    
+                steps {
+    
+                    bat """
+    
+                    gcloud auth activate-service-account --key-file="${env.GCP_KEY}"
+    
+                    gcloud config set project ${env.PROJECT_ID}
+    
+                    gcloud auth configure-docker asia-south1-docker.pkg.dev --quiet
+    
+                    """
+    
+                }
+    
             }
  
-        }
- 
-        stage('Build Docker Image') {
- 
-            steps {
- 
-                def image_repo = "asia-south1-docker.pkg.dev/${env.PROJECT_ID}/service-user/user"
-                def image_tag = "${BUILD_NUMBER}-${env.env_namespace}"
- 
-                bat """
-                
-                docker build -f ./app/Dockerfile -t ${image_repo}:${image_tag} .
-                docker push ${image_repo}:${image_tag}
- 
-                """
- 
-            }
- 
-        }
+       stage('Build Docker Image') {
+          steps {
+              script {
+                  def image_repo = "asia-south1-docker.pkg.dev/${env.PROJECT_ID}/service-user/user"
+                  def image_tag = "${BUILD_NUMBER}-${env.env_namespace}"
+                  def image_full = "${image_repo}:${image_tag}"
+       
+                  bat """
+                      docker build -f ./app/Dockerfile -t ${image_full} .
+                      docker push ${image_full}
+                  """
+              }
+          }
+      }
  
         stage('Deploy to GKE-1') {
  
@@ -94,4 +89,3 @@ pipeline {
         }
     }
 }
- 
