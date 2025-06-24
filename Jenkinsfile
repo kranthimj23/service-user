@@ -8,7 +8,7 @@ pipeline {
         PROJECT_ID = 'bamboo-diode-456912-p9'
         CLUSTER = 'autopilot-cluster-1'
         ZONE = 'asia-south1'
-        GCP_KEY = 'C:\\Users\\himan\\Downloads\\devops-lab-ci\\flask-gke-helm\\jenkins-sa-key.json'   
+        GCP_KEY = 'C:\\Users\\MS LAKSHMI\\Documents\\DevSecOps\\devops-lab-gke\\jenkins-sa-key.json'   
         PYTHON_EXEC = 'C:\\Python313\\python.exe'
         GIT_CREDENTIALS_ID = credentials('devsecops')
     }
