@@ -5,7 +5,7 @@ pipeline {
     agent any
 
     environment {
-        PROJECT_ID = 'bamboo-diode-456912-p9'
+        PROJECT_ID = 'devops-ai-labs-1'
         CLUSTER = 'autopilot-cluster-1'
         ZONE = 'asia-south1'
         GCP_KEY = 'C:\\Users\\MS LAKSHMI\\Documents\\DevSecOps\\devops-lab-gke\\jenkins-sa-key.json'   
