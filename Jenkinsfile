@@ -6,7 +6,7 @@ pipeline {
 
     environment {
         PROJECT_ID = 'devops-ai-labs-1'
-        CLUSTER = 'autopilot-cluster-1'
+        CLUSTER = 'demo-gke-cluster'
         ZONE = 'asia-south1'
         GCP_KEY = 'C:\\Users\\MS LAKSHMI\\Documents\\DevSecOps\\devops-lab-gke\\devops-ai-labs-1-246e1adc77fb.json'   
         PYTHON_EXEC = 'C:\\Python313\\python.exe'
