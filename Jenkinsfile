@@ -41,6 +41,8 @@ pipeline {
                         echo " docker build -t ${image_full} . "
                         echo " docker push ${image_full} "
                         docker build -t ${image_full} .
+                        echo Logging in to Artifact Registry...
+                        type ${env.GCP_KEY} | docker login -u _json_key --password-stdin https://asia-south1-docker.pkg.dev
                         docker push ${image_full}
                     """
                 }
