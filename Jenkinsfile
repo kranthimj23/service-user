@@ -38,6 +38,8 @@ pipeline {
                     def image_full = "${image_repo}:${image_tag}"
 
                     bat """
+                        echo " docker build -t ${image_full} . "
+                        echo " docker push ${image_full} "
                         docker build -t ${image_full} .
                         docker push ${image_full}
                     """
