@@ -8,7 +8,7 @@ pipeline {
         PROJECT_ID = 'bamboo-diode-456912-p9'
         CLUSTER = 'autopilot-cluster-1'
         ZONE = 'asia-south1'
-        GCP_KEY = 'C:\\Users\\himan\\Downloads\\devops-lab-ci\\flask-gke-helm\\jenkins-sa-key.json'
+        GCP_KEY = 'C:\\Users\\himan\\Desktop\\bamboo-diode-456912-p9-b1cec081d02a.json'
         PYTHON_EXEC = 'C:\\Users\\himan\\AppData\\Local\\Programs\\Python\\Python313\\python.exe'
     }
 
