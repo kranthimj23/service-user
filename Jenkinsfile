@@ -25,7 +25,8 @@ pipeline {
                 bat """
                     gcloud auth activate-service-account --key-file="${env.GCP_KEY}"
                     gcloud config set project ${env.PROJECT_ID}
-                    gcloud auth configure-docker asia-south1-docker.pkg.dev --quiet
+                    gcloud auth configure-docker asia-south1-docker.pkg.dev 
+                    gcloud auth list
                 """
             }
         }
