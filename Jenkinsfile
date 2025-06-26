@@ -8,7 +8,7 @@ pipeline {
         PROJECT_ID = 'devops-ai-labs-1'
         CLUSTER = 'demo-gke-cluster'
         ZONE = 'asia-south1'
-        GCP_KEY = 'C:\\Users\\devops-ai-labs-1-8604d2bb5446.json'
+        GCP_KEY = 'C:\\Users\\devops-ai-labs-1-ffe9cbe45593.json'
         //PYTHON_EXEC = 'C:\\Users\\himan\\AppData\\Local\\Programs\\Python\\Python313\\python.exe'
     }
 
