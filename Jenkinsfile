@@ -5,8 +5,8 @@ pipeline {
     agent any
 
     environment {
-        PROJECT_ID = 'bamboo-diode-456912-p9'
-        CLUSTER = 'autopilot-cluster-1'
+        PROJECT_ID = 'devops-ai-labs-1'
+        CLUSTER = 'demo-gke-cluster'
         ZONE = 'asia-south1'
         GCP_KEY = 'C:\\Users\\MS LAKSHMI\\Downloads\\devops-ai-labs-1-8604d2bb5446.json'
         PYTHON_EXEC = 'C:\\Python313\\python.exe'
