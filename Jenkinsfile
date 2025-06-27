@@ -24,7 +24,7 @@ pipeline {
         stage('Authenticate with GCP') {
             steps {
                 bat """
-                    gcloud auth activate-service-account --key-file="C:\Users\devops-ai-labs-1-ffe9cbe45593.json"
+                    gcloud auth activate-service-account --key-file="C:\\Users\\devops-ai-labs-1-ffe9cbe45593.json"
                     gcloud config set project devops-ai-labs-1
                     gcloud auth configure-docker asia-south1-docker.pkg.dev --quiet
                     gcloud auth list
