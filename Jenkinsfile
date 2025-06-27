@@ -24,9 +24,9 @@ pipeline {
         stage('Authenticate with GCP') {
             steps {
                 bat """
-                    gcloud auth activate-service-account --key-file="${env.GCP_KEY}"
-                    gcloud config set project ${env.PROJECT_ID}
-                    gcloud auth configure-docker asia-south1-docker.pkg.dev 
+                    gcloud auth activate-service-account --key-file="C:\Users\devops-ai-labs-1-ffe9cbe45593.json"
+                    gcloud config set project devops-ai-labs-1
+                    gcloud auth configure-docker asia-south1-docker.pkg.dev --quiet
                     gcloud auth list
                 """
             }
@@ -40,6 +40,7 @@ pipeline {
                     def image_full = "${image_repo}:${image_tag}"
 
                     bat """
+                        gcloud auth print-access-token | docker login -u oauth2accesstoken --password-stdin https://asia-south1-docker.pkg.dev
                         echo " docker build -t ${image_full} . "
                         echo " docker push ${image_full} "
                         docker build -t ${image_full} .
