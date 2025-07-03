@@ -10,7 +10,7 @@ pipeline {
         ZONE = 'asia-south1'
         
         // Update this path if your key is stored elsewhere
-        GCP_KEY = '/home/kranthimj23/devops-ai-labs-1-ffe9cbe45593.json'
+        GCP_KEY = '/var/lib/jenkins/keys/devops-ai-labs-1-ffe9cbe45593.json'
         
         PYTHON_EXEC = 'python3'
         GIT_CREDENTIALS_ID = credentials('jenkins-token')
