@@ -12,7 +12,7 @@ pipeline {
         // Update this path if your key is stored elsewhere
         GCP_KEY = '/var/lib/jenkins/keys/devops-ai-labs-1-ffe9cbe45593.json'
         
-        PYTHON_EXEC = 'python3'
+        PYTHON_EXEC = 'python3.12'
         GIT_CREDENTIALS_ID = credentials('jenkins-token')
     }
 
