@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
-  repository: asia-south1-docker.pkg.dev/bamboo-diode-456912-p9/service-user/user
-  tag: 25-dev
+  repository: asia-south1-docker.pkg.dev/devops-ai-labs-1/service-user/user
+  tag: 18-dev
 replicaCount: 2
 resources:
   limits:
