@@ -8,8 +8,9 @@ pipeline {
         PROJECT_ID = 'devops-ai-labs-1'
         CLUSTER = 'demo-gke-cluster'
         ZONE = 'asia-south1'
-        GCP_KEY = 'C:\\Users\\devops-ai-labs-1-ffe9cbe45593.json'
-        PYTHON_EXEC = 'C:\\Python313\\python.exe'
+       //GCP_KEY = 'C:\\Users\\devops-ai-labs-1-ffe9cbe45593.json'
+        GCP_KEY = devops-ai-labs-1-ffe9cbe45593.json
+        PYTHON_EXEC = python
         GIT_CREDENTIALS_ID = credentials('jenkins-token')
         //PYTHON_EXEC = 'C:\\Users\\himan\\AppData\\Local\\Programs\\Python\\Python313\\python.exe'
     }
@@ -35,7 +36,7 @@ pipeline {
         
         stage('Authenticate with GCP') {
             steps {
-                bat """
+                sh """
                     gcloud auth activate-service-account --key-file="C:\\Users\\devops-ai-labs-1-ffe9cbe45593.json"
                     gcloud config set project devops-ai-labs-1
                     gcloud auth configure-docker asia-south1-docker.pkg.dev --quiet
@@ -51,7 +52,7 @@ pipeline {
                     image_tag = "${BUILD_NUMBER}-${env.env_namespace}"
                     def image_full = "${image_repo}:${image_tag}"
 
-                    bat """
+                    sh """
                         gcloud auth print-access-token | docker login -u oauth2accesstoken --password-stdin https://asia-south1-docker.pkg.dev
                         echo " docker build -t ${image_full} . "
                         echo " docker push ${image_full} "
@@ -64,7 +65,7 @@ pipeline {
 
         stage('Deploy to GKE') {
             steps {
-                bat """
+                sh """
                     gcloud container clusters get-credentials ${env.CLUSTER} --zone ${env.ZONE} --project ${env.PROJECT_ID}
                 """
 
