@@ -73,19 +73,21 @@ pipeline {
                 """
 
                 configFileProvider([configFile(fileId: 'deploy_to_gke', targetLocation: 'deploy_to_gke.py')]) {
-                    script {
-                        def pythonCommand = """
-                            export CLUSTER=${CLUSTER}
-                            export ZONE=${ZONE}
-                            export PROJECT_ID=${PROJECT_ID}
-                            echo Running Python script...
-                            ${PYTHON_EXEC} deploy_to_gke.py ${env.env_namespace ?: 'dev'} ${image_repo} ${image_tag} ${env.github_url} ${env.microservice}
-                        """
-
-                        echo "Executing Python Deployment Script..."
-
-                        def result = sh(script: pythonCommand, returnStdout: true).trim()
-                        echo "Deployment Output:\n${result}"
+                    withCredentials([string(credentialsId: 'jenkins-token', variable: 'GIT_TOKEN')]) {
+                        script {
+                            def pythonCommand = """
+                                export CLUSTER=${CLUSTER}
+                                export ZONE=${ZONE}
+                                export PROJECT_ID=${PROJECT_ID}
+                                echo Running Python script...
+                                ${PYTHON_EXEC} deploy_to_gke.py ${env.env_namespace ?: 'dev'} ${image_repo} ${image_tag} ${env.github_url} ${env.microservice}
+                            """
+    
+                            echo "Executing Python Deployment Script..."
+    
+                            def result = sh(script: pythonCommand, returnStdout: true).trim()
+                            echo "Deployment Output:\n${result}"
+                        }
                     }
                 }
             }
