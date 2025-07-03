@@ -10,7 +10,7 @@ pipeline {
         ZONE = 'asia-south1'
        //GCP_KEY = 'C:\\Users\\devops-ai-labs-1-ffe9cbe45593.json'
         GCP_KEY = devops-ai-labs-1-ffe9cbe45593.json
-        PYTHON_EXEC = python
+        PYTHON_EXEC = python3
         GIT_CREDENTIALS_ID = credentials('jenkins-token')
         //PYTHON_EXEC = 'C:\\Users\\himan\\AppData\\Local\\Programs\\Python\\Python313\\python.exe'
     }
