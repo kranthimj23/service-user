@@ -6,7 +6,7 @@ pipeline {
 
     environment {
         PROJECT_ID = 'devops-ai-labs-1'
-        CLUSTER = 'demo-gke-cluster'
+        CLUSTER = 'autopilot-cluster-1'
         ZONE = 'asia-south1'
         
         // Update this path if your key is stored elsewhere
