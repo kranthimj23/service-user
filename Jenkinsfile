@@ -63,6 +63,7 @@ pipeline {
                         docker push ${image_full}
                     """
                 }
+
             }
         }
 
