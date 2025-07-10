@@ -3,13 +3,17 @@ image:
   repository: asia-south1-docker.pkg.dev/devops-ai-labs-1/service-user/user
   tag: 19-dev
 replicaCount: 2
+env:
+  service_user:
+    - name: key1
+      value: value1
 resources:
   limits:
-    cpu: 500m
+    cpu: 50m
     memory: 512Mi
   requests:
     cpu: 200m
-    memory: 256Mi
+    memory: 512Mi
 service:
   port: 8080
   type: ClusterIP
