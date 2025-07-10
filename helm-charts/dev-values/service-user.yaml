@@ -1,12 +1,12 @@
+env:
+  service_user:
+  - name: key1
+    value: value1
 image:
   pullPolicy: IfNotPresent
   repository: asia-south1-docker.pkg.dev/devops-ai-labs-1/service-user/user
-  tag: 20-dev
+  tag: 21-dev
 replicaCount: 2
-env:
-  service_user:
-    - name: key1
-      value: value1
 resources:
   limits:
     cpu: 600m
