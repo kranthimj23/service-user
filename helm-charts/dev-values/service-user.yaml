@@ -1,3 +1,4 @@
+serviceName: service-user
 env:
   service_user:
   - name: key1
