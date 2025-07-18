@@ -1,7 +1,7 @@
 env:
   service_user:
-  - name: key1
-    value: value1
+  - name: key2
+    value: value2
 image:
   pullPolicy: IfNotPresent
   repository: asia-south1-docker.pkg.dev/nice-virtue-463917-m0/service-user/user
