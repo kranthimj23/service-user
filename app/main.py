@@ -12,6 +12,7 @@ def ready():
 
 @app.route('/write')
 def write():
+    print("write function being executed")
     return jsonify({"msg": "Data written to Aerospike and PostgreSQL"})
 
 #this is app
