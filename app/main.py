@@ -7,7 +7,8 @@ def health():
     return jsonify({"status": "healthy"})
 
 @app.route('/ready')
-def ready():
+def ready9():
+    print("status")
     return jsonify({"status": "ready"})
 
 @app.route('/write')
