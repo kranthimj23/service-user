@@ -6,14 +6,14 @@ env:
     value: value4
   - name: key5
     value: value5
-  - name: key6
-    value: value6
-  - name: key7
-    value: value7
+  - name: name
+    value: man
+  - name: name
+    value: himanshu
 image:
   pullPolicy: IfNotPresent
   repository: asia-south1-docker.pkg.dev/nice-virtue-463917-m0/service-user/user
-  tag: 47-dev
+  tag: 48-dev
 replicaCount: 1
 resources:
   limits:
