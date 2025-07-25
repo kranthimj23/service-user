@@ -11,6 +11,7 @@ env:
   - name: name
     value: himanshu
 image:
+  imageName: asia-south1-docker.pkg.dev/nice-virtue-463917-m0/service-user/user:48-dev
   pullPolicy: IfNotPresent
   repository: asia-south1-docker.pkg.dev/nice-virtue-463917-m0/service-user/user:6.3.0-b48-release-r6.0.0-v1
   tag: 48-dev
