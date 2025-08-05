@@ -88,20 +88,22 @@ pipeline {
                     gcloud container clusters get-credentials ${CLUSTER} --zone ${ZONE} --project ${PROJECT_ID}
                 """
                 script {
-                    def deployScriptPath = "zdt-manager-src/backend/app/ci/scripts/deploy_to_gke.py"
-
-                    def pythonCommand = """
-                        export CLUSTER=${CLUSTER}
-                        export ZONE=${ZONE}
-                        export PROJECT_ID=${PROJECT_ID}
-                        export GIT_TOKEN=${GIT_TOKEN}
-                        echo Running Python script...
-                        ${PYTHON_EXEC} ${deployScriptPath} ${env.env_namespace ?: 'dev'} ${image_repo} ${image_tag} ${env.github_url} ${env.microservice}
-                    """
-
-                    echo "Executing Python Deployment Script..."
-                    def result = sh(script: pythonCommand, returnStdout: true).trim()
-                    echo "Deployment Output:\n${result}"
+                    withCredentials([string(credentialsId: 'jenkins-token', variable: 'GIT_TOKEN')]) {
+                        def deployScriptPath = "zdt-manager-src/backend/app/ci/scripts/deploy_to_gke.py"
+        
+                        def pythonCommand = """
+                            export CLUSTER=${CLUSTER}
+                            export ZONE=${ZONE}
+                            export PROJECT_ID=${PROJECT_ID}
+                            export GIT_TOKEN=${GIT_TOKEN}
+                            echo Running Python script...
+                            ${PYTHON_EXEC} ${deployScriptPath} ${env.env_namespace ?: 'dev'} ${image_repo} ${image_tag} ${env.github_url} ${env.microservice}
+                        """
+        
+                        echo "Executing Python Deployment Script..."
+                        def result = sh(script: pythonCommand, returnStdout: true).trim()
+                        echo "Deployment Output:\n${result}"
+                    }
                 }
             }
         }
