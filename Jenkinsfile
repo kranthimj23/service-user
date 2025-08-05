@@ -36,8 +36,14 @@ pipeline {
                 dir('zdt-manager-src') {
                     script {
                         withCredentials([string(credentialsId: 'jenkins-token', variable: 'GIT_TOKEN')]) {
-                            git branch: 'zdt-application', // Or whichever branch you need
-                                url: "https://${GIT_TOKEN}@github.com/kranthimj23/zdt-manager-src.git"
+                            checkout([
+                                $class: 'GitSCM',
+                                branches: [[name: "*/zdt-application"]],
+                                userRemoteConfigs: [[
+                                    url: "https://${GIT_TOKEN}@github.com/kranthimj23/zdt-manager-src.git"
+                                ]]
+                            ])
+
                         }
                     }
                 }
@@ -88,6 +94,7 @@ pipeline {
                         export CLUSTER=${CLUSTER}
                         export ZONE=${ZONE}
                         export PROJECT_ID=${PROJECT_ID}
+                        export GIT_TOKEN=${GIT_TOKEN}
                         echo Running Python script...
                         ${PYTHON_EXEC} ${deployScriptPath} ${env.env_namespace ?: 'dev'} ${image_repo} ${image_tag} ${env.github_url} ${env.microservice}
                     """
