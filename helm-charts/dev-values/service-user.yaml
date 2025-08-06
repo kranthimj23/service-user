@@ -11,10 +11,10 @@ env:
   - name: name
     value: himanshu
 image:
-  imageName: asia-south1-docker.pkg.dev/nice-virtue-463917-m0/service-user/user:54-dev
+  imageName: asia-south1-docker.pkg.dev/nice-virtue-463917-m0/service-user/user:55-dev
   pullPolicy: IfNotPresent
   repository: asia-south1-docker.pkg.dev/nice-virtue-463917-m0/service-user/user
-  tag: 54-dev
+  tag: 55-dev
 replicaCount: 1
 resources:
   limits:
