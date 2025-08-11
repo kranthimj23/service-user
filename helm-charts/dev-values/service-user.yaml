@@ -10,10 +10,10 @@ env:
     value: value2
   - name: key4
     value: value4
-  - name: key5
-    value: value5
   - name: name
-    value: surabhi
+    value: Himanshu
+  - name: key6
+    value: value6  
 image:
   imageName: asia-south1-docker.pkg.dev/nice-virtue-463917-m0/service-user/user:48-dev
   pullPolicy: IfNotPresent
