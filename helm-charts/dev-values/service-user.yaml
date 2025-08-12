@@ -4,10 +4,8 @@ env:
     value: value2
   - name: key4
     value: value4
-  - name: key5
-    value: value5
   - name: name
-    value: man
+    value: Siva
   - name: name
     value: himanshu
 image:
