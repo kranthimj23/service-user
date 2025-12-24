@@ -9,10 +9,10 @@ env:
   - name: name
     value: himanshu
 image:
-  imageName: us-central1-docker.pkg.dev/mobile-app-1-482109/service-admin/admin:36-dev
+  imageName: us-central1-docker.pkg.dev/mobile-app-1-482109/service-admin/admin:37-dev
   pullPolicy: IfNotPresent
   repository: us-central1-docker.pkg.dev/mobile-app-1-482109/service-admin/admin
-  tag: 36-dev
+  tag: 37-dev
 replicaCount: 1
 resources:
   limits:
