@@ -1,9 +1,3 @@
-# JIRA LINK1: https://jira.qwerty.com/browse/PDE-1234
-# JIRA LINK2: https://jira.qwerty.com/browse/PDE-22341 
-# JIRA LINK3: https://jira.qwerty.com/browse/PDE-445678 
-# EPIC: mb-loans
-# JIRA Ticket IDs: 345678, 323256
-
 env:
   service_user:
   - name: key2
@@ -15,10 +9,10 @@ env:
   - name: name
     value: himanshu
 image:
-  imageName: asia-south1-docker.pkg.dev/nice-virtue-463917-m0/service-user/user:59-dev
+  imageName: us-central1-docker.pkg.dev/mobile-app-1-482109/service-user/user:40-dev
   pullPolicy: IfNotPresent
-  repository: asia-south1-docker.pkg.dev/nice-virtue-463917-m0/service-user/user
-  tag: 59-dev
+  repository: us-central1-docker.pkg.dev/mobile-app-1-482109/service-user/user
+  tag: 40-dev
 replicaCount: 1
 resources:
   limits:
