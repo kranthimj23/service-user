@@ -13,6 +13,7 @@ def ready9():
 @app.route('/write')
 def write():
     print("write function being executed")
+    print("Hare Krsna")
     return jsonify({"msg": "Data written to service-user"})
 
 #this is app
