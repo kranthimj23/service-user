@@ -14,7 +14,7 @@ def ready9():
 def write():
     print("write function being executed")
     print("Hare Rama")
-    return jsonify({"msg": "Data written to service-user"})
+    return jsonify({"msg": "Data1 written to service-user"})
 
 #this is app
 
