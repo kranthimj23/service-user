@@ -7,7 +7,7 @@ env:
   - name: name
     value: Siva
   - name: name
-    value: himanshu
+    value: krsna
 image:
   imageName: us-central1-docker.pkg.dev/mobile-app-1-482109/service-user/user:50-dev
   pullPolicy: IfNotPresent
