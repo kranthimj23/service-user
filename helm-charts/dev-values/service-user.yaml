@@ -4,8 +4,6 @@ env:
     value: value2
   - name: key4
     value: value4
-  - name: key5
-    value: value5
 image:
   imageName: us-central1-docker.pkg.dev/mobile-app-1-482109/service-user/user:50-dev
   pullPolicy: IfNotPresent
