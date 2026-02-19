@@ -4,7 +4,7 @@ env:
     value: value2
   - name: key4
     value: value4
-  - name: name
+  - name: name1
     value: Shantanu
 image:
   imageName: us-central1-docker.pkg.dev/mobile-app-1-482109/service-user/user:50-dev
